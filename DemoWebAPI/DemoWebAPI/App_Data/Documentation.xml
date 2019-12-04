@@ -483,7 +483,7 @@
         </member>
         <member name="T:DemoWebAPI.Controllers.PeopleController">
             <summary>
-            This is where I give you all the the info about people.
+            This is where I give you all the info about people.
             </summary>
         </member>
         <member name="M:DemoWebAPI.Controllers.PeopleController.GetFirstNames(System.Int32,System.Int32)">
@@ -493,6 +493,13 @@
             <param name="userId">The unique identifier for this person</param>
             <param name="age">We wand to know how old they are</param>
             <returns>A list of first names...</returns>
+        </member>
+        <member name="M:DemoWebAPI.Controllers.PeopleController.GetByLastName(System.String)">
+            <summary>
+            Gets the people with specified last name.
+            </summary>
+            <param name="last_name"></param>
+            <returns></returns>
         </member>
         <member name="T:DemoWebAPI.Models.Person">
             <summary>
@@ -504,14 +511,19 @@
             Id from SQL
             </summary>
         </member>
-        <member name="P:DemoWebAPI.Models.Person.FirstName">
+        <member name="P:DemoWebAPI.Models.Person.first_name">
             <summary>
             The user's first name.
             </summary>
         </member>
-        <member name="P:DemoWebAPI.Models.Person.LastName">
+        <member name="P:DemoWebAPI.Models.Person.last_name">
             <summary>
             The user's last name.
+            </summary>
+        </member>
+        <member name="P:DemoWebAPI.Models.Person.email">
+            <summary>
+            The user's email.
             </summary>
         </member>
     </members>

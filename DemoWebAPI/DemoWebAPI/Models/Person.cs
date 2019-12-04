@@ -18,11 +18,16 @@ namespace DemoWebAPI.Models
         /// <summary>
         /// The user's first name.
         /// </summary>
-        public string FirstName { get; set; } = "";
+        public string first_name { get; set; } = "";
 
         /// <summary>
         /// The user's last name.
         /// </summary>
-        public string LastName { get; set; } = "";
+        public string last_name { get; set; } = "";
+
+        /// <summary>
+        /// The user's email.
+        /// </summary>
+        public string email { get; set; } = "";
     }
 }

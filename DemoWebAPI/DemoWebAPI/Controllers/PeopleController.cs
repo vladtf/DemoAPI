@@ -17,10 +17,19 @@ namespace DemoWebAPI.Controllers
 
         public PeopleController()
         {
-            people.Add(new Person { FirstName = "Tim", LastName = "Corey", Id = 1 });
-            people.Add(new Person { FirstName = "Sue", LastName = "Storm", Id = 2 });
-            people.Add(new Person { FirstName = "Audrey", LastName = "Jenkins", Id = 3 });
+            //people.Add(new Person { FirstName = "Tim", LastName = "Corey", Id = 1 });
+            //people.Add(new Person { FirstName = "Sue", LastName = "Storm", Id = 2 });
+            //people.Add(new Person { FirstName = "Audrey", LastName = "Jenkins", Id = 3 });
+            //people.Add(new Person { FirstName = "Billy", LastName = "Peterson", Id = 4 });
+            //people.Add(new Person { FirstName = "John", LastName = "Johnson", Id = 5 });
+            //people.Add(new Person { FirstName = "George", LastName = "Wisley", Id = 6 });
+            //people.Add(new Person { FirstName = "Alex", LastName = "Granger", Id = 7 });
+            //people.Add(new Person { FirstName = "Stan", LastName = "Potter", Id = 8 });
+            //people.Add(new Person { FirstName = "Stewy", LastName = "Baggings", Id = 9 });
+
+            people = SQLServerConnection.GetPeople();
         }
+
 
         /// <summary>
         /// Gets a list of the first name of all users.
@@ -35,11 +44,34 @@ namespace DemoWebAPI.Controllers
             List<string> output = new List<string>();
             foreach (var p in people)
             {
-                output.Add(p.FirstName);
+                if(p.Id>userId)
+                output.Add(p.first_name);
 
             }
             return output;
         }
+
+
+        /// <summary>
+        /// Gets the people with specified last name.
+        /// </summary>
+        /// <param name="last_name"></param>
+        /// <returns></returns>
+        [Route("api/People/{lastname}")]
+        [HttpGet]
+        public List<Person> GetByLastName(string lastname)
+        {
+            List<Person> output = new List<Person>();
+            foreach (var p in people)
+            {
+                if (p.last_name == lastname)
+                    output.Add(p);
+
+            }
+            return output;
+        }
+
+
         // GET: api/People
         public List<Person> Get()
         {
